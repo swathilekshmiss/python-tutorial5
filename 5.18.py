@@ -1,0 +1,15 @@
+import pandas as pd,
+ import matplotlib.pyplot as plt 
+df_weather = pd.read_csv("weather.csv")
+print(df_weather.head(10))
+print("Max Temperature:", df_weather["temperature"].max())
+print("Min Temperature:", df_weather["temperature"].min())
+print("Places with temperature < 28:\n", df_weather[df_weather["temperature"] < 28]["place"])
+print("Places with Cloudy Weather:\n", df_weather[df_weather["weather"] == "Cloudy"]["place"])
+print("Weather Frequency:\n", df_weather["weather"].value_counts())
+plt.bar(df_weather["date"], df_weather["temperature"])
+plt.xlabel("Date")
+plt.ylabel("Temperature")
+plt.title("Temperature of Each Day")
+plt.xticks(rotation=45)
+plt.show()
